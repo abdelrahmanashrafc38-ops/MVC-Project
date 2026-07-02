@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Tourist_Project_MVC.Models;
 
@@ -79,6 +80,36 @@ namespace Tourist_Project_MVC.Data
             modelBuilder.Entity<TripDestination>().HasData(
                 new { Id = 1, Visit_Order = 1, ArrivalDate = DateTime.Parse("2026-07-02"), DepartureDate = DateTime.Parse("2026-07-06"), TripPlanId = 1, DestinationId = 1 },
                 new { Id = 2, Visit_Order = 2, ArrivalDate = DateTime.Parse("2026-07-07"), DepartureDate = DateTime.Parse("2026-07-12"), TripPlanId = 1, DestinationId = 2 }
+            );
+
+            // 10. Seed Roles
+            modelBuilder.Entity<IdentityRole>().HasData(
+                new IdentityRole { Id = "role-admin-id", Name = "Admin", NormalizedName = "ADMIN", ConcurrencyStamp = "STATIC-ROLE-STAMP-1" },
+                new IdentityRole { Id = "role-user-id", Name = "User", NormalizedName = "USER", ConcurrencyStamp = "STATIC-ROLE-STAMP-2" }
+            );
+
+            // 11. Seed Admin User
+            modelBuilder.Entity<ApplicationUser>().HasData(
+                new ApplicationUser
+                {
+                    Id = "admin-user-id",
+                    UserName = "admin",
+                    NormalizedUserName = "ADMIN",
+                    Email = "admin@yourteam.com",
+                    NormalizedEmail = "ADMIN@YOURTEAM.COM",
+                    PasswordHash = "AQAAAAEAACcQAAAAEOM7OCjj2Qn35RIy2ZkWbwA5OiG6BP0kf501wx6tAaZeWYV8w4SiIUX35viVhiAmgw==", // Static hash for Admin123Password!
+                    SecurityStamp = "STATIC-STAMP-12345", 
+                    ConcurrencyStamp = "STATIC-CONCURRENCY-12345" 
+                }
+            );
+
+            // 12. Link Admin User to Admin Role
+            modelBuilder.Entity<IdentityUserRole<string>>().HasData(
+                new IdentityUserRole<string>
+                {
+                    RoleId = "role-admin-id", 
+                    UserId = "admin-user-id"
+                }
             );
         }
     }

@@ -36,7 +36,7 @@ namespace Tourist_Project_MVC.Controllers
                 
                 if (identityResult.Succeeded)
                 {
-                    await userManager.AddToRoleAsync(applicationUser, "Admin");
+                    await userManager.AddToRoleAsync(applicationUser, "User");
                     return RedirectToAction("Login");
                 }
                 foreach (var errorItem in identityResult.Errors)

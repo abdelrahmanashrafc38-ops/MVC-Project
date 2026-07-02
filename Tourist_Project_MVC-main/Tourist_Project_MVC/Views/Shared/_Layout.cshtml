@@ -100,9 +100,37 @@
                                 </li>
                             </ul>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="AccountsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-people-fill"></i> @User.Identity.Name
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="AccountsDropdown">
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Role" asp-action="Create">
+                                        <i class="bi bi-star-fill me-2"></i> Add Role
+                                    </a>
+                                </li>
+                                <li>
+                                        <a class="dropdown-item" asp-controller="Role" asp-action="AssignRole">
+                                            <i class="bi bi-star-fill me-2"></i>Assign Roles
+                                        </a>
+                                </li>
+                            }
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Account" asp-action="Logout">
+                                        <i class="bi bi-building me-2"></i> Log out
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        @* <li class="nav-item">
+                            <a class="nav-link nav-auth-btn" asp-controller="Role" asp-action="Create">Add Role</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link nav-auth-btn" asp-controller="Account" asp-action="Logout">Log out</a>
-                        </li>
+                        </li> *@
                     }
                     else
                     {
