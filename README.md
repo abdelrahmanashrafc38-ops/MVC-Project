@@ -90,28 +90,12 @@ The database is managed using **Entity Framework Core** with a Code-First approa
 - Admin dashboard for managing sponsor partnerships.
 - Integration between Sponsors and the Rewards system, allowing the platform to link specific rewards to their providing partners.
 
-## 9. Screenshots
-
-*(Replace the placeholder links below with actual screenshots of the application)*
-
-### Sponsors Directory
-![Sponsors Index](path/to/sponsor-index-screenshot.png)
-
-### Sponsor Details
-![Sponsor Details](path/to/sponsor-details-screenshot.png)
-
-### Admin: Add/Edit Sponsor
-![Edit Sponsor](path/to/sponsor-edit-screenshot.png)
-
-### Overall Application (Home)
-![Home Page](path/to/home-page-screenshot.png)
-
-## 10. Team Project & Contribution
+## 9. Team Project & Contribution
 This application was developed collaboratively as an ITI team project. The overall system is a joint effort combining various modules developed by different team members to create a cohesive Gamified Touristic Management System.
 
 My primary contribution to this collaborative effort was the design, implementation, and integration of the **Sponsors Module** (as detailed in section 6), handling all aspects of sponsor data management and its related views.
 
-## 11. Project Structure
+## 10. Project Structure
 The repository is organized into a standard ASP.NET Core MVC structure:
 - **`Controllers/`**: Contains the C# controllers handling request logic (e.g., `SponsorController`, `HomeController`, `TouristController`).
 - **`Models/`**: Domain entities representing database tables.
@@ -123,7 +107,7 @@ The repository is organized into a standard ASP.NET Core MVC structure:
 - **`wwwroot/`**: Static assets including custom CSS styles, JavaScript, Bootstrap files, and Egyptian-themed images.
 - **`Program.cs`**: The entry point, configuring services, dependency injection, and middleware.
 
-## 12. How to Run
+## 11. How to Run
 
 ### Prerequisites
 - **.NET SDK**: Ensure you have .NET 10.0 SDK installed.
