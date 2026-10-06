@@ -105,3 +105,47 @@ The database is managed using **Entity Framework Core** with a Code-First approa
 
 ### Overall Application (Home)
 ![Home Page](path/to/home-page-screenshot.png)
+
+## 10. Team Project & Contribution
+This application was developed collaboratively as an ITI team project. The overall system is a joint effort combining various modules developed by different team members to create a cohesive Gamified Touristic Management System.
+
+My primary contribution to this collaborative effort was the design, implementation, and integration of the **Sponsors Module** (as detailed in section 6), handling all aspects of sponsor data management and its related views.
+
+## 11. Project Structure
+The repository is organized into a standard ASP.NET Core MVC structure:
+- **`Controllers/`**: Contains the C# controllers handling request logic (e.g., `SponsorController`, `HomeController`, `TouristController`).
+- **`Models/`**: Domain entities representing database tables.
+- **`Repositories/`**: Data access layer files implementing the Generic Repository pattern.
+- **`Views/`**: Razor `.cshtml` files containing the UI, organized by controller. Contains the `Shared` folder for layouts.
+- **`View Model/`**: Specialized models used strictly for transferring data to and from views.
+- **`Data/`**: Contains the Entity Framework `TouristContext` and extensive seed data.
+- **`Migrations/`**: Entity Framework Core migration files tracking database schema changes.
+- **`wwwroot/`**: Static assets including custom CSS styles, JavaScript, Bootstrap files, and Egyptian-themed images.
+- **`Program.cs`**: The entry point, configuring services, dependency injection, and middleware.
+
+## 12. How to Run
+
+### Prerequisites
+- **.NET SDK**: Ensure you have .NET 10.0 SDK installed.
+- **SQL Server**: A local or remote SQL Server instance to host the database.
+- **Visual Studio / VS Code**: Recommended IDEs for running the project.
+
+### Configuration
+1. Clone the repository to your local machine.
+2. Open `appsettings.json` located in the root of the MVC project.
+3. Update the `"ConnectionStrings": { "CS": "..." }` value to point to your SQL Server instance. **(Note: Do not commit your personal credentials or secrets to version control)**.
+
+### Database Setup
+1. Open the Package Manager Console in Visual Studio or use the .NET CLI.
+2. Run the command to apply migrations and seed the database:
+   - PMC: `Update-Database`
+   - CLI: `dotnet ef database update`
+3. This will create the database and populate it with initial data (destinations, tourists, sponsors, rewards, etc.).
+
+### Running the Application
+1. In Visual Studio, set the project as the startup project and press `F5` or click "Run".
+2. Alternatively, from the command line, navigate to the project directory and run:
+   ```bash
+   dotnet run
+   ```
+3. The application will start and open in your default web browser. You can log in using the pre-seeded admin account.
